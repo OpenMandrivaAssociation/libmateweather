@@ -1,11 +1,11 @@
 %define major	1
-%define libname	%mklibname gweather %{major}
-%define devname	%mklibname -d gweather
+%define libname	%mklibname mateweather %{major}
+%define devname	%mklibname -d mateweather
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
 Version:	1.2.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://mate-desktop.org
