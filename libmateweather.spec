@@ -75,3 +75,18 @@ done
 %dir %{_datadir}/gtk-doc/html/%{name}
 %{_datadir}/gtk-doc/html/%{name}/*
 
+
+
+%changelog
+* Thu Aug 02 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.4.0-1
++ Revision: 811572
+- new version 1.4
+
+* Sat Jun 02 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.2.0-2
++ Revision: 802029
+- rebuild to build proper lib and dev pkg names
+
+* Fri Jun 01 2012 Matthew Dawkins <mattydaw@mandriva.org> 1.2.0-1
++ Revision: 801695
+- imported package libmateweather
+
