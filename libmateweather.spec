@@ -1,8 +1,9 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
+%define oname	mateweather
 %define major	1
-%define libname	%mklibname mateweather %{major}
-%define devname	%mklibname -d mateweather
+%define libname	%mklibname %{oname} %{major}
+%define devname	%mklibname -d %{oname}
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
@@ -37,6 +38,14 @@ Provides:	%{name}-devel = %{version}-%{release}
 
 %description -n %{devname}
 This is a library to provide Weather data to the MATE panel applet.
+
+%package -n python-%{oname}
+Summary:	Python bindings for MATE Weather applet
+Group:		System/Libraries
+Requires:	%{name} >= %{version}-%{release}
+
+%description -n python-%{oname}
+Python bindings for mateweather.
 
 %prep
 %setup -q
@@ -75,4 +84,7 @@ done
 %{_includedir}/*
 %dir %{_datadir}/gtk-doc/html/%{name}
 %{_datadir}/gtk-doc/html/%{name}/*
+
+%files -n python-%{oname}
+%{python_sitearch}/%{oname}
 
