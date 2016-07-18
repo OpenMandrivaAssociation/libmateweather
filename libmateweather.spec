@@ -4,11 +4,12 @@
 %define major	1
 %define libname	%mklibname %{oname} %{major}
 %define devname	%mklibname -d %{oname}
-
+%define _disable_rebuild_configure 1
+%define _disable_ld_no_undefined 1
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.8.0
-Release:	2
+Version:	1.14.0
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://mate-desktop.org
@@ -16,9 +17,10 @@ Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	mate-common
-BuildRequires:	pkgconfig(gtk+-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-gnome-2.4)
 BuildRequires:	pkgconfig(pygtk-2.0)
+BuildRequires:	pkgconfig(python2)
 
 %description
 This is a library to provide Weather data to the MATE panel applet.
@@ -49,12 +51,17 @@ Python bindings for mateweather.
 
 %prep
 %setup -q
-NOCONFIGURE=yes ./autogen.sh
 
 %build
+export CC=gcc
+export CXX=g++
+export PYTHON=python2
+
 %configure2_5x \
 	--disable-static \
-	--enable-python
+	--disable-schemas-compile \
+	--enable-python \
+	--with-gtk=3.0
 
 %make 
 
@@ -86,5 +93,5 @@ done
 %{_datadir}/gtk-doc/html/%{name}/*
 
 %files -n python-%{oname}
-%{python_sitearch}/%{oname}
+%{python2_sitearch}/%{oname}
 
