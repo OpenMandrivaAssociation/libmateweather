@@ -8,19 +8,19 @@
 %define _disable_ld_no_undefined 1
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.14.0
+Version:	1.18.1
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://mate-desktop.org
-Source0:	http://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://mate-desktop.org
+Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	mate-common
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libsoup-gnome-2.4)
+BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pygtk-2.0)
-BuildRequires:	pkgconfig(python2)
 
 %description
 This is a library to provide Weather data to the MATE panel applet.
@@ -41,40 +41,23 @@ Provides:	%{name}-devel = %{version}-%{release}
 %description -n %{devname}
 This is a library to provide Weather data to the MATE panel applet.
 
-%package -n python-%{oname}
-Summary:	Python bindings for MATE Weather applet
-Group:		System/Libraries
-Requires:	%{name} >= %{version}-%{release}
-
-%description -n python-%{oname}
-Python bindings for mateweather.
-
 %prep
 %setup -q
 
 %build
-export CC=gcc
-export CXX=g++
-export PYTHON=python2
-
-%configure2_5x \
-	--disable-static \
-	--disable-schemas-compile \
-	--enable-python \
-	--with-gtk=3.0
-
+%configure \
+        --disable-schemas-compile  \
+	%{nil}
 %make 
 
 %install
 %makeinstall_std
 
+# locales
 %find_lang %{name} --with-gnome --all-name
-for xmlfile in %{buildroot}%{_datadir}/%{name}/Locations.*.xml; do
-	echo "%lang($(basename $xmlfile|sed -e s/Locations.// -e s/.xml//)) $(echo $xmlfile | sed s!%{buildroot}!!)" >> %{name}.lang
-done
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS
+%doc AUTHORS NEWS README
 %{_datadir}/glib-2.0/schemas/org.mate.weather.gschema.xml
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/locations.dtd
@@ -92,6 +75,6 @@ done
 %dir %{_datadir}/gtk-doc/html/%{name}
 %{_datadir}/gtk-doc/html/%{name}/*
 
-%files -n python-%{oname}
-%{python2_sitearch}/%{oname}
+#%files -n python-%{oname}
+#%{python3_sitearch}/%{oname}
 
