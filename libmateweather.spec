@@ -55,6 +55,9 @@ This is a library to provide Weather data to the MATE panel applet.
 
 # locales
 %find_lang %{name} --with-gnome --all-name
+for xmlfile in %{buildroot}%{_datadir}/%{name}/Locations.*.xml; do
+	echo "%lang($(basename $xmlfile|sed -e s/Locations.// -e s/.xml//)) $(echo $xmlfile | sed s!%{buildroot}!!)" >> %{name}.lang
+done
 
 %files -f %{name}.lang
 %doc AUTHORS NEWS README
