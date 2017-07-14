@@ -16,6 +16,7 @@ Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar
 
 BuildRequires:	intltool
 BuildRequires:	libxml2-utils
+BuildRequires:	mate-common
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gtk-doc)
 BuildRequires:	pkgconfig(libsoup-gnome-2.4)
@@ -79,7 +80,7 @@ This is a library to provide Weather data to the MATE panel applet.
 %setup -q
 
 %build
-NOCONFIGURE=yes ./autogen.sh
+#NOCONFIGURE=yes ./autogen.sh
 %configure \
 	--disable-schemas-compile \
 	--enable-gtk-doc-html \
