@@ -84,7 +84,6 @@ This is a library to provide Weather data to the MATE panel applet.
 %configure \
 	--disable-schemas-compile \
 	--enable-gtk-doc-html \
-	--enable-locations-compression \
 	%{nil}
 %make 
 
