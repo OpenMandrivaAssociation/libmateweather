@@ -7,7 +7,7 @@
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.20.0
+Version:	1.20.2
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -85,14 +85,13 @@ This is a library to provide Weather data to the MATE panel applet.
 	--disable-schemas-compile \
 	--enable-gtk-doc-html \
 	%{nil}
-%make 
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 # locales
 %find_lang %{name} --with-gnome --all-name
 for xmlfile in %{buildroot}%{_datadir}/%{name}/Locations.*.xml; do
 	echo "%lang($(basename $xmlfile|sed -e s/Locations.// -e s/.xml//)) $(echo $xmlfile | sed s!%{buildroot}!!)" >> %{name}.lang
 done
-
