@@ -23,6 +23,7 @@ BuildRequires:	pkgconfig(libsoup-gnome-2.4)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(pygtk-2.0)
+BuildRequires:	timezone
 
 %description
 The MATE Desktop Environment is the continuation of GNOME 2. It provides an
