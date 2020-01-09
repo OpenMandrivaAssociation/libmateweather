@@ -1,8 +1,2 @@
-removed_sources:
-  libmateweather-1.14.0.tar.xz: 8f94aee849e613f2e869f096bbc618180016d885
-  libmateweather-1.18.1.tar.xz: ad6536d05b257405ca7a5b64a0a122915f65a07e
-  libmateweather-1.18.2.tar.xz: 76d74138d5adf287f2cd277bed8e3e6a38224075
-  libmateweather-1.20.0.tar.xz: 60dfc96ff6cdb7e94e14f38731a444d447a162e2
-  libmateweather-1.20.2.tar.xz: 646d4b9602d42a34f62148e8e80f9a90aebe0888
 sources:
-  libmateweather-1.22.0.tar.xz: b8558da0eed165838a24624b804937af5738403a
+  libmateweather-1.22.1.tar.xz: c0b6e6575e12621ff3bb8cd68b9c21256a8351bc
