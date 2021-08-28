@@ -44,6 +44,8 @@ applet.
 %{_datadir}/%{name}/locations.dtd
 %{_datadir}/%{name}/Locations.xml
 #{_iconsdir}/mate/*/status/weather*
+%{_iconsdir}/hicolor/*x*/status/weather*
+%{_iconsdir}/hicolor/scalable/status/weather*
 
 #---------------------------------------------------------------------------
 
