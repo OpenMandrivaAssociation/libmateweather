@@ -43,7 +43,7 @@ applet.
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/locations.dtd
 %{_datadir}/%{name}/Locations.xml
-%{_iconsdir}/mate/*/status/weather*
+#{_iconsdir}/mate/*/status/weather*
 
 #---------------------------------------------------------------------------
 
