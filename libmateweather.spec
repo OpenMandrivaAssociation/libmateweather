@@ -8,7 +8,7 @@
 Summary:	MATE Weather applet library
 Name:		libmateweather
 Version:	1.26.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://mate-desktop.org
@@ -81,7 +81,7 @@ This is a library to provide Weather data to the MATE panel applet.
 #---------------------------------------------------------------------------
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 #NOCONFIGURE=yes ./autogen.sh
@@ -89,6 +89,10 @@ This is a library to provide Weather data to the MATE panel applet.
 	--disable-schemas-compile \
 	--enable-gtk-doc-html \
 	%{nil}
+
+# fix unused-direct-shlib-dependency
+sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
+
 %make_build
 
 %install
