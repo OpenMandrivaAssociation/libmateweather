@@ -8,7 +8,7 @@
 Summary:	MATE Weather applet library
 Name:		libmateweather
 Version:	1.26.0
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://mate-desktop.org
@@ -52,6 +52,7 @@ applet.
 %package -n %{libname}
 Summary:	MATE Weather applet library
 Group:		System/Libraries
+Requires:	%{name} >= %{version}
 
 %description -n %{libname}
 This is a library to provide Weather data to the MATE panel applet.
