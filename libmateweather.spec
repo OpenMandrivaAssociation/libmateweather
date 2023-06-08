@@ -7,8 +7,8 @@
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.26.0
-Release:	4
+Version:	1.26.1
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://mate-desktop.org
