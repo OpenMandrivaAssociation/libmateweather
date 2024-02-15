@@ -1,18 +1,19 @@
-%define url_ver %(echo %{version}|cut -d. -f1,2)
+%define mate_ver	%(echo %{version}|cut -d. -f1,2)
 
 %define oname	mateweather
 %define major	1
-%define libname	%mklibname %{oname} %{major}
-%define devname	%mklibname -d %{oname}
+%define libname	%mklibname %{oname}
+%define devname	%mklibname %{oname} -d
+%define oldlibname	%mklibname %{oname} 1
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.26.3
+Version:	1.28.0
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://mate-desktop.org
-Source0:	https://pub.mate-desktop.org/releases/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
@@ -53,6 +54,7 @@ applet.
 Summary:	MATE Weather applet library
 Group:		System/Libraries
 Requires:	%{name} >= %{version}
+Obsoletes:	%{oldlibname} < %{EVRD}
 
 %description -n %{libname}
 This is a library to provide Weather data to the MATE panel applet.
