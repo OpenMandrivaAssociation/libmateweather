@@ -15,6 +15,10 @@ Group:		System/Libraries
 Url:		https://mate-desktop.org
 Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	autoconf-archive
 BuildRequires:	intltool
 BuildRequires:	libxml2-utils
