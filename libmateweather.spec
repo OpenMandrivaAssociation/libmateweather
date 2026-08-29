@@ -8,12 +8,14 @@
 
 Summary:	MATE Weather applet library
 Name:		libmateweather
-Version:	1.28.0
-Release:	2
+Version:	1.28.2
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		https://mate-desktop.org
-Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
+#Source0:	https://pub.mate-desktop.org/releases/%{mate_ver}/%{name}-%{version}.tar.xz
+# Use for now tarball from GitHub because from few months sources at mate-desktop.org was not updated.
+Source0:	https://github.com/mate-desktop/libmateweather/releases/download/v%{version}/libmateweather-%{version}.tar.xz
 
 BuildRequires:	automake
 BuildRequires:	libtool-base
