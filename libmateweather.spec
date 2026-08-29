@@ -100,7 +100,7 @@ This is a library to provide Weather data to the MATE panel applet.
 	%{nil}
 
 # fix unused-direct-shlib-dependency
-sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' slibtool
+#sed -i -e 's/ -shared / -Wl,-O1,--as-needed\0 /g' libtool
 
 %make_build
 
